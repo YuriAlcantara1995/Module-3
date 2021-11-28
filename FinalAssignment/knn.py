@@ -57,13 +57,13 @@ class KNN:
             for i_test in range(num_test):
                 for i_train in range(num_train):
                     # TODO: Fill dists[i_test][i_train]
-					dists[i_test][i_train] = np.sum(abs(X[i_test] - self.train_X[i_train]))
+                    dists[i_test][i_train] = np.sum(abs(X[i_test] - self.train_X[i_train]))
                     pass
         elif self.metric == 'euclidean':
             for i_test in range(num_test):
                 for i_train in range(num_train):
                     # TODO: Fill dists[i_test][i_train]
-					dists[i_test][i_train] = np.linalg.norm(X[i_test] - self.train_X[i_train])
+                    dists[i_test][i_train] = np.linalg.norm(X[i_test] - self.train_X[i_train])
                     pass
 
     def compute_distances_one_loop(self, X):
@@ -85,7 +85,7 @@ class KNN:
             for i_test in range(num_test):
                 # TODO: Fill the whole row of dists[i_test]
                 # without additional loops or list comprehensions
-    			dists[i_test] = np.sum(abs(self.train_X - X[i_test]), axis = 1)
+				dists[i_test] = np.sum(abs(self.train_X - X[i_test]), axis = 1)
 				pass
         elif self.metric == 'euclidean':
             for i_test in range(num_test):
@@ -112,11 +112,11 @@ class KNN:
         dists = np.zeros((num_test, num_train), np.float32)
         if self.metric == 'manhattan':
             # TODO: Implement computing all distances with no loops!
-			 dists = np.abs(X[:,None] - self.train_X).sum(-1)
+            dists = np.abs(X[:,None] - self.train_X).sum(-1)
             pass
         if self.metric == 'euclidean':
             # TODO: Implement computing all distances with no loops!
-			dists = np.sqrt((X**2).sum(axis=1)[:, np.newaxis] + (self.train_X**2).sum(axis=1) - 2 * X.dot(self.train_X.T))
+            dists = np.sqrt((X**2).sum(axis=1)[:, np.newaxis] + (self.train_X**2).sum(axis=1) - 2 * X.dot(self.train_X.T))
             pass
 
     def predict_labels_binary(self, dists):
