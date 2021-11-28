@@ -85,14 +85,12 @@ class KNN:
             for i_test in range(num_test):
                 # TODO: Fill the whole row of dists[i_test]
                 # without additional loops or list comprehensions
-				dists[i_test] = np.sum(abs(self.train_X - X[i_test]), axis = 1)
-				pass
+                dists[i_test] = np.sum(abs(self.train_X - X[i_test]), axis = 1)
         elif self.metric == 'euclidean':
             for i_test in range(num_test):
                 # TODO: Fill the whole row of dists[i_test]
                 # without additional loops or list comprehensions
-				dists[i_test] = np.linalg.norm(self.train_X - X[i_test], axis = 1)
-				pass
+                dists[i_test] = np.linalg.norm(self.train_X - X[i_test], axis = 1)
 
     def compute_distances_no_loops(self, X):
         '''
